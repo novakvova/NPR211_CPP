@@ -24,16 +24,8 @@ private:        //інкапсуляція.
 	int age;     //зміни класу - поле age
 public:
 	//метод для зміни значення імені
-	void setName(string name) {  //метод класу - функція в середині класу
-		this->name = name; //зберігаємо для об'єкта ім'я
-	}
-	void setAge(int age) {  //метод класу
-		if (age <= 0) {
-			cerr << "Ви вказани не допстимен занчення для віку(має буть більше 0)\n";
-			return;
-		}
-		this->age = age; 
-	}
+	void setName(string); //формальний опис метода класа
+	void setAge(int age);
 	string getName() { return name; } //метод класу
 	int getAge() { return age; } //метод класу
 };
@@ -41,14 +33,22 @@ public:
 int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	/*StudentStruct np121[5];
-	np121[0].name = "Mykyta";
-	np121[0].age = -8;
-	cout << "Mykyta = " << np121[0].name << "\t" << np121[0].age << "\n";*/
-	//На основі класу MyStudent - створили екземпляр (об'єкт) класу test
 	MyStudent test;
 	test.setName("Kotel"); //викликаємо метод класу setName, я який передаємо значення імені для даного екзампляра
 	test.setAge(-10); //викликаємо метод setAge - передаємо вік для даного об'єкта
 	cout << test.getName() << "\t" << test.getAge() << "\n";
 	return 0;
+}
+
+//Фактичний опис метода класа
+//метод класу - функція в середині класу
+void MyStudent::setName(string name) { //метод класу - функція в середині класу
+	this->name = name; //зберігаємо для об'єкта ім'я
+}
+void MyStudent::setAge(int age) {
+	if (age <= 0) {
+		cerr << "Ви вказани не допстимен занчення для віку(має буть більше 0)\n";
+		return;
+	}
+	this->age = age;
 }
