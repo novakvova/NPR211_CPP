@@ -98,6 +98,47 @@ void Matrix::setValue(int i, int j, int value)
 	mat[i][j] = value;
 }
 
+void Matrix::save(string path)
+{
+	ofstream out(path);
+	out << n << "\t" << m << "\n";
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			out<<mat[i][j]<<'\t'; //записую суму елемент≥в матриц≥
+		}
+		out << "\n";
+	}
+	out.close();
+}
+
+void Matrix::read(string path)
+{
+	for (int i = 0; i < n; i++)
+	{
+		delete[] mat[i]; //видал€ю стовпчкик у р€дку
+	}
+	delete[] mat;
+
+	ifstream in(path);
+	in >> n >> m;
+
+	mat = new int* [n]; //вказуЇмо к≥льсть р€дк≥в
+	for (int i = 0; i < n; i++) {
+		mat[i] = new int[m]; //вид≥л€Їмо пам€ть п≥д р€дки
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			in>>mat[i][j]; //записую суму елемент≥в матриц≥
+		}
+	}
+	in.close();
+}
+
 Matrix Matrix::operator=(const Matrix&input)
 {
 	if (this == &input)

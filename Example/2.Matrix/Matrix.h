@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 using namespace std;
 class Matrix
 {
@@ -21,5 +22,8 @@ public:
 	Matrix operator=(const Matrix&); //перевантаження оператора присвоїти.
 
 	void setValue(int, int, int); //зміна значення в матриці
+
+	void save(string path); //зберегти у файл
+	void read(string path); //прочитати із файлу
 };
 
