@@ -39,10 +39,38 @@ int main() {
 	a.initRandom();
 	cout << "-----Matrix A-----\n";
 	a.print();
-
-	Matrix b(a);
-	cout << "------Matrix B------\n";
+	/*if (1) {
+		Matrix b(a);
+		cout << "------Matrix B------\n";
+		b.print();
+	}*/
+	Matrix b(2,4);
+	b.initRandom();
+	cout << "---Matrix B---\n";
 	b.print();
-	//cout << "Привіт!";
+	
+	//Matrix c = a.plus(b);
+	Matrix c = a + b;
+
+	cout << "+++++Matrix A result+++++\n";
+	a.print();
+
+	cout << "+++++Matrix B result+++++\n";
+	b.print();
+
+	cout << "+++++Matrix C result+++++\n";
+	c.print();
+
+
+	Matrix vova(3, 3);
+	vova.initRandom();
+	cout << "VOVA = \n";
+	vova.print();
+	Matrix peter; //Розмір матриці стандартний 2x2
+	peter = vova;
+	vova.setValue(0, 0, -34);
+	cout << "PETER = \n";
+	peter.print();
+
 	return 0;
 }

@@ -41,6 +41,7 @@ Matrix::~Matrix()
 		delete[] mat[i]; //видал€ю стовпчкик у р€дку
 	}
 	delete[] mat;
+	//cout << "^^^^^^^DELETE object^^^^^^^^^^\n";
 }
 
 void Matrix::initRandom()
@@ -62,4 +63,68 @@ void Matrix::print()
 		}
 		cout << "\n";
 	}
+}
+
+Matrix Matrix::plus(const Matrix& input)
+{
+	Matrix matrix(n, m); //створив матрицю потр≥бног розм≥ру
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			matrix.mat[i][j] = mat[i][j] + input.mat[i][j]; //записую суму елемент≥в матриц≥
+		}
+	}
+
+	return Matrix(matrix);
+}
+
+Matrix Matrix::operator+(const Matrix& input)
+{
+	Matrix matrix(n, m); //створив матрицю потр≥бног розм≥ру
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			matrix.mat[i][j] = mat[i][j] + input.mat[i][j]; //записую суму елемент≥в матриц≥
+		}
+	}
+
+	return Matrix(matrix);
+}
+
+void Matrix::setValue(int i, int j, int value)
+{
+	mat[i][j] = value;
+}
+
+Matrix Matrix::operator=(const Matrix&input)
+{
+	if (this == &input)
+		return *this;  //роз≥менуванн€ обЇект (this - вказ≥вник на обЇект) *this - сам об'Їтк
+
+	//матриц€, €ка справого боку в≥д знаку = видал€Їмо пам€ть
+	for (int i = 0; i < n; i++)
+	{
+		delete[] mat[i]; //видал€ю стовпчкик у р€дку
+	}
+	delete[] mat;
+
+	//вид≥л€Їмо пам€ть в≥д нову матрицю
+	this->n = input.n;
+	this->m = input.m;
+	mat = new int* [n]; //вказуЇмо к≥льсть р€дк≥в
+	for (int i = 0; i < n; i++) {
+		mat[i] = new int[m]; //вид≥л€Їмо пам€ть п≥д р€дки
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			mat[i][j] = input.mat[i][j];
+		}
+	}
+
+	return *this;
 }
