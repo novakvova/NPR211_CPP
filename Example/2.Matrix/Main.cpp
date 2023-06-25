@@ -36,13 +36,36 @@ int main() {
 			current = a;
 			break;
 		}
+		case 2: {
+			cout << "------Введіть дані про матрицю----------\n";
+			cin >> current;
+			break;
+		}
 		case 3: {
 			cout << current;
 			break;
 		}
+		case 4: {
+			cout << "Вкажіть назву файла ->_";
+			string fileName;
+			cin >> fileName;
+			ifstream input(fileName);
+			input >> current;
+			input.close();
+			break;
+		}
+		case 7: {
+			cout << "Вкажіть індекс\n";
+			int i, j;
+			cout << "i=";
+			cin >> i;
+			cout << "j=";
+			cin >> j;
+			/*cout << "Значення = " << current[i][j] << "\n";*/
+		}
 		}
 
-	} while (action != 7);
+	} while (action != 8);
 
 	return 0;
 }
@@ -53,7 +76,8 @@ void showMenu() {
 	cout << "4. Прочатиати матрицю із файлу (вказуємо ім'я файлу вручну).\n";
 	cout << "5. Записати матрицю у файл (вказуємо назву вручну).\n";
 	cout << "6. Додати матриці і вивести результат (у файл або екран)\n";
-	cout << "7. Вихід.\n";
+	cout << "7. Отримати елемент по індексу\n";
+	cout << "8. Вихід.\n";
 }
 
 void testMatrix() {

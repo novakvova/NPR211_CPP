@@ -98,6 +98,11 @@ void Matrix::setValue(int i, int j, int value)
 	mat[i][j] = value;
 }
 
+//const int*& Matrix::operator[](int i) const
+//{
+//	return mat[i];
+//}
+
 void Matrix::save(string path)
 {
 	ofstream out(path);

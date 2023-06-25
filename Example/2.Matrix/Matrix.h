@@ -23,6 +23,8 @@ public:
 
 	void setValue(int, int, int); //зміна значення в матриці
 
+	//const int* & operator[](int i) const;
+
 	void save(string path); //зберегти у файл
 	void read(string path); //прочитати із файлу
 
