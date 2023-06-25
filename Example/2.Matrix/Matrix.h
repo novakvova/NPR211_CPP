@@ -25,5 +25,15 @@ public:
 
 	void save(string path); //зберегти у файл
 	void read(string path); //прочитати із файлу
+
+	//вивід матриці на екран через cout<<
+	friend ostream& operator<<(ostream& os, const Matrix&);
+	//ввід даних про матрицю через cin>>
+	friend istream& operator>>(istream& is, Matrix&);
+
+	//вивід матриці на екран через ofstream<<
+	friend ofstream& operator<<(ofstream& os, const Matrix&);
+	//вивід матриці на екран через ifstream<>>
+	friend ifstream& operator>>(ifstream& is, Matrix&);
 };
 

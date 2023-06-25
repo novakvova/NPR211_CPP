@@ -169,3 +169,89 @@ Matrix Matrix::operator=(const Matrix&input)
 
 	return *this;
 }
+
+ostream& operator<<(ostream& os, const Matrix& matrix)
+{
+	for (int i = 0; i < matrix.n; i++)
+	{
+		for (int j = 0; j < matrix.m; j++)
+		{
+			os << matrix.mat[i][j] << "\t";
+		}
+		os << "\n";
+	}
+	return os;
+}
+
+istream& operator>>(istream& is, Matrix& matrix)
+{
+	//Видаляємо інфомрацію про стару матрицю
+	for (int i = 0; i < matrix.n; i++)
+	{
+		delete[] matrix.mat[i]; //видаляю стовпчкик у рядку
+	}
+	delete[] matrix.mat;
+
+	cout << "Вкажіть кількість рядків матриці ->_";
+	is >> matrix.n;
+
+	cout << "Вкажіть кількість стовпчиків матриці ->_";
+	is >> matrix.m;
+
+	matrix.mat = new int* [matrix.n]; //вказуємо кільсть рядків
+	for (int i = 0; i < matrix.n; i++) {
+		matrix.mat[i] = new int[matrix.m]; //виділяємо память під рядки
+	}
+
+	for (int i = 0; i < matrix.n; i++)
+	{
+		for (int j = 0; j < matrix.m; j++)
+		{
+			is>>matrix.mat[i][j];
+		}
+	}
+
+	return is;
+}
+
+ofstream& operator<<(ofstream& os, const Matrix& matrix)
+{
+	os << matrix.n << "\n" << matrix.m << "\n";
+	for (int i = 0; i < matrix.n; i++)
+	{
+		for (int j = 0; j < matrix.m; j++)
+		{
+			os << matrix.mat[i][j] << "\t";
+		}
+		os << "\n";
+	}
+	return os;
+}
+
+ifstream& operator>>(ifstream& is, Matrix& matrix)
+{
+	//Видаляємо інфомрацію про стару матрицю
+	for (int i = 0; i < matrix.n; i++)
+	{
+		delete[] matrix.mat[i]; //видаляю стовпчкик у рядку
+	}
+	delete[] matrix.mat;
+
+	is >> matrix.n;
+	is >> matrix.m;
+
+	matrix.mat = new int* [matrix.n]; //вказуємо кільсть рядків
+	for (int i = 0; i < matrix.n; i++) {
+		matrix.mat[i] = new int[matrix.m]; //виділяємо память під рядки
+	}
+
+	for (int i = 0; i < matrix.n; i++)
+	{
+		for (int j = 0; j < matrix.m; j++)
+		{
+			is >> matrix.mat[i][j];
+		}
+	}
+
+	return is;
+}
