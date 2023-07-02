@@ -6,7 +6,8 @@ using namespace std;
 int main() {
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
-	Singly myList;
+	
+	Singly<int> myList;
 	myList.Add(23);
 	myList.Add(45);
 	myList.Add(567);
