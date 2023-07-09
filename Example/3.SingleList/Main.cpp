@@ -21,21 +21,29 @@ int main() {
 	cout << "List size = " << myList.Size() << endl;*/
 
 	Singly<Student> students;
-	Student vova("Новак Володимир", "096 765 89 76", 36);
+	Student vova("Novak", "096 765 89 76", 36);
 	students.Add(vova);
-	Student ilon("Ілон Маск", "096 987 89 76", 36);
+	Student ilon("Ilon", "096 987 89 76", 36);
 	students.Add(ilon);
-	Student ilona("Ілона Треба", "098 765 89 76", 30);
+	Student ilona("Kaban", "098 765 89 76", 30);
 	students.Add(ilona);
-	Student uhym("Юхим Нехочу", "095 765 89 76", 65);
+	Student uhym("Kotel", "095 765 89 76", 65);
 	students.Add(uhym);
+	Student anton("Ananas", "068 765 89 76", 23);
+	students.Add(anton);
 
 	//cout << (vova>uhym) << "\n";
 
 	cout << "---------Students---------\n";
 	cout << students << "\n";
-	cout << "----Remove Ілон Маск--------\n";
-	students.Remove(ilon);
+	cout << "----------Student sort-----------\n";
+	students.sort();
 	cout << students << "\n";
+	cout << "--------Student sort revers--------\n";
+	students.sort(true);
+	cout << students << "\n";
+	//cout << "----Remove Ілон Маск--------\n";
+	//students.Remove(ilon);
+	//cout << students << "\n";
 	return 0;
 }

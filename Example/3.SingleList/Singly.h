@@ -6,7 +6,7 @@ template <typename T> class Singly
 {
 private:
 	struct Node {
-		T data;  //інформація, яка зберігається у вузглі дерева
+		T data;  //інформація, яка зберігається у вузглі списка
 		Node* next; //вказівник на наступний елемент, який іде далі
 	};
 	Node* head; //вказівник на 1 елемент послідовності
@@ -81,6 +81,32 @@ public:
 			temp = temp->next;
 		}
 		return os;
+	}
+
+	void sort(bool revers = false) {
+		int size = this->Size();
+		Node* temp = head;
+		for (int i = 0; i < size-1; i++)
+		{
+			Node* next = temp->next;
+			for (int j = i+1; j < size; j++)
+			{
+				bool isSwap=false;
+				if (revers) {
+					isSwap = !(temp->data > next->data);
+				}
+				else {
+					isSwap = temp->data > next->data;
+				}
+				if (isSwap) {
+					T tempData = temp->data;
+					temp->data = next->data;
+					next->data = tempData;
+				}
+				next = next->next;
+			}
+			temp = temp->next;
+		}
 	}
 };
 
