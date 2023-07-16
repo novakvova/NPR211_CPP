@@ -3,5 +3,5 @@
 
 void MyReader::test()
 {
-	cout << "Test Signleton\n";
+	cout << "Test Signleton "<<count<<endl;
 }

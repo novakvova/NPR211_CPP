@@ -15,6 +15,15 @@ int main()
 	//2. Можливість створення екземпляру класа лише в одному екземплярі.
 	// Наприклад, ми підлкючили до БД - підлючення на весь процес роболи лише одне.
 	// Читаємо файл. - один раз підключидися і лупашимо.
-	//MyReader reader;
+	//Отримали посилання на об'єкт
+	if (true) {
+		MyReader::getInstance().test();
+		cout << "Object address reader: " << &MyReader::getInstance() << endl;
+	}
+	if (true) {
+		cout << "Object address malvina: " << &MyReader::getInstance() << endl;
+		MyReader::getInstance().test();
+	}
+	
 	return 0;
 }
