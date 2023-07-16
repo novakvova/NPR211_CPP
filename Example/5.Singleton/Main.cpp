@@ -16,9 +16,12 @@ int main()
 	// Наприклад, ми підлкючили до БД - підлючення на весь процес роболи лише одне.
 	// Читаємо файл. - один раз підключидися і лупашимо.
 	//Отримали посилання на об'єкт
+	MyReader &raketa = MyReader::getInstance();
 	if (true) {
 		MyReader::getInstance().test();
 		cout << "Object address reader: " << &MyReader::getInstance() << endl;
+		MyReader& bomba = raketa;
+		cout << "Address bomba " << &bomba << endl;
 	}
 	if (true) {
 		cout << "Object address malvina: " << &MyReader::getInstance() << endl;
