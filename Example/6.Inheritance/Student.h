@@ -1,7 +1,7 @@
 #pragma once
 #include "Person.h";
 
-class Student : Person
+class Student : public Person
 {
 private:
 	double mark;
@@ -9,6 +9,7 @@ private:
 public:
 	Student();
 	Student(const char* name, double mark);
+	Student(const char* name, int age, double mark);
 
 	void showInfo();
 };

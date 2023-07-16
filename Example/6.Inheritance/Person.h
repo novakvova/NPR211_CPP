@@ -18,7 +18,7 @@ public:
 	void setName(const char* name);
 	void setName(const string name);
 	string getName();
-	void showInfo();
+	virtual void showInfo();
 
 };
 
