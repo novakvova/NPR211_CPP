@@ -1,3 +1,5 @@
+#include "Person.h"
+#include "Person.h"
 #define _CRT_SECURE_NO_WARNINGS
 #include "Person.h"
 
@@ -13,6 +15,7 @@ Person::Person(const char* name) {
 	setAge(18);
 	setName(name);
 }
+
 
 Person::Person(const Person& student) {
 	int size = strlen(student.name);
