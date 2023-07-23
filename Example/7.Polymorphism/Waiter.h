@@ -21,6 +21,11 @@ public:
 	void setAge(int age);
 	int getAge();
 
-	friend ostream& operator<<(ostream& out, const Waiter& waiter);
+	virtual ostream& print(ostream& out) const override {
+		Person::print(out);
+		out << "\n";
+		out << "Speed: " << speed << "\t" << "Age: " << age;
+		return out;
+	}
 };
 

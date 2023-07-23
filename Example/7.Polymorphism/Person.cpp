@@ -42,9 +42,3 @@ void Person::setCategory(const int category) {
 double Person::getCategory() {
 	return category;
 }
-
-ostream& operator<<(ostream& out, const Person& person)
-{
-	out << person.name << "\t" << person.salary << "\t" << person.category;
-	return out;
-}
