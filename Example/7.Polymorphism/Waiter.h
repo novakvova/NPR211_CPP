@@ -22,6 +22,7 @@ public:
 	int getAge();
 
 	virtual ostream& print(ostream& out) const override {
+		out << "-----------Îô³ö³àíò-------------\n";
 		Person::print(out);
 		out << "\n";
 		out << "Speed: " << speed << "\t" << "Age: " << age;

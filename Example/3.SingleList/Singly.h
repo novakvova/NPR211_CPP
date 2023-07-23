@@ -77,7 +77,8 @@ public:
 		// робимо вказівничок на 1 елемент і тоді ідемо у кінець послідовності
 		Singly::Node* temp = list.head;
 		while (temp != NULL) {
-			os << temp->data << "\n";
+			os << *temp->data << "\n";
+			
 			temp = temp->next;
 		}
 		return os;
