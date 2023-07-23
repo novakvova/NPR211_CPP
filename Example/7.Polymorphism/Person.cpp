@@ -3,6 +3,7 @@
 Person::Person() {
 	setName("no name");
 	setSalary(6500);
+	setCategory(3);
 }
 
 Person::Person(const string name, const double salary, const int category)
@@ -40,4 +41,10 @@ void Person::setCategory(const int category) {
 
 double Person::getCategory() {
 	return category;
+}
+
+ostream& operator<<(ostream& out, const Person& person)
+{
+	out << person.name << "\t" << person.salary << "\t" << person.category;
+	return out;
 }

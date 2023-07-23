@@ -20,5 +20,7 @@ public:
 	int getSpeed();
 	void setAge(int age);
 	int getAge();
+
+	friend ostream& operator<<(ostream& out, const Waiter& waiter);
 };
 

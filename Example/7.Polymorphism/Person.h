@@ -29,5 +29,7 @@ public:
 	double getSalary();
 	void setCategory(const int category);
 	double getCategory();
+
+	friend virtual ostream& operator<<(ostream& out, const Person& person);
 };
 
