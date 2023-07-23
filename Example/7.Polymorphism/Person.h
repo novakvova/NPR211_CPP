@@ -30,6 +30,6 @@ public:
 	void setCategory(const int category);
 	double getCategory();
 
-	friend virtual ostream& operator<<(ostream& out, const Person& person);
+	virtual ostream& print(const Person& person);
 };
 
