@@ -26,12 +26,8 @@ private:
     //пошук елемента
     TreeNode* searchRecursive(TreeNode* currentNode, int value) {
         //якщо поточний елемент постуий, ми стоврЇмо вузол
-        if (currentNode == nullptr) {
-            return nullptr; //якщо елеменn не знайдено 
-        }
-
-        if (value == currentNode->data) {
-            return currentNode;
+        if (currentNode == nullptr || currentNode->data == value) {
+            return currentNode; //якщо елеменn не знайдено 
         }
 
         //виклик метода рекурс≥йно
@@ -43,7 +39,6 @@ private:
         else {
             return searchRecursive(currentNode->right, value); //€кщо значенн€ б≥льше поточного - ≥демо в праву г≥лку
         }
-        return currentNode; //вертаЇмо поточний елемент
     }
 
     //пошук м≥н≥мального елемента

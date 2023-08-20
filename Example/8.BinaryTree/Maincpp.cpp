@@ -17,13 +17,13 @@ int main() {
 
 
 
-   /* TreeNode * node = tree.search(2);
+    TreeNode * node = tree.search(2);
     if (node != nullptr)
     {
         std::cout << "Знайдено елемента - " << node->data << "\n";
         std::cout << "left - " << node->left << "\n";
         std::cout << "right - " << node->right << "\n";
-    }*/
+    }
     std::cout << "Список елементів дерева: ";
     tree.inorder();
     std::cout << std::endl;
