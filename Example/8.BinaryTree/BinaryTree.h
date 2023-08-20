@@ -83,6 +83,15 @@ private:
         return currentNode;
     }
 
+    void clearRecursive(TreeNode* node)
+    {
+        if (node != nullptr) {
+            clearRecursive(node->left);
+            clearRecursive(node->right);
+            delete node;
+        }
+    }
+
 public:
     BinaryTree() : root(nullptr) {}
 
@@ -114,5 +123,11 @@ public:
 
     void remove(int value) {
         root = removeRecursive(root, value);
+    }
+
+    //очистить дерево
+    void clear() {
+        clearRecursive(root);
+        root = nullptr;
     }
 };

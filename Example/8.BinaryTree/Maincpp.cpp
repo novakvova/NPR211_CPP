@@ -15,8 +15,7 @@ int main() {
     tree.insert(12);
     tree.insert(-1);
 
-
-
+    
     TreeNode * node = tree.search(2);
     if (node != nullptr)
     {
@@ -36,6 +35,9 @@ int main() {
     tree.inorder();
     std::cout << std::endl;
 
-
+    tree.clear();
+    std::cout << "Clear: ";
+    tree.inorder();
+    std::cout << std::endl;
 	return 0;
 }
