@@ -7,16 +7,19 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
     BinaryTree tree;
-    tree.insert(5);
+   /* tree.insert(5);
     tree.insert(3);
     tree.insert(8);
     tree.insert(2);
     tree.insert(4);
     tree.insert(12);
-    tree.insert(-1);
+    tree.insert(-1);*/
 
+    //tree.saveToFile("vova.txt");
+    tree.readFromFile("vova.txt");
     
-    TreeNode * node = tree.search(2);
+    tree.inorder();
+    /*TreeNode * node = tree.search(2);
     if (node != nullptr)
     {
         std::cout << "Знайдено елемента - " << node->data << "\n";
@@ -38,6 +41,6 @@ int main() {
     tree.clear();
     std::cout << "Clear: ";
     tree.inorder();
-    std::cout << std::endl;
+    std::cout << std::endl;*/
 	return 0;
 }

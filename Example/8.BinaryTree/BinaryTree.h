@@ -1,5 +1,7 @@
 #pragma once
 #include<iostream>
+#include<fstream>
+using namespace std;
 #include "TreeNode.h"
 
 class BinaryTree {
@@ -82,7 +84,7 @@ private:
 
         return currentNode;
     }
-
+    //очистить дерево елемент≥в
     void clearRecursive(TreeNode* node)
     {
         if (node != nullptr) {
@@ -91,6 +93,16 @@ private:
             delete node;
         }
     }
+
+    //«берегти дерево у файл
+    void savePreorder(TreeNode* currentNode, ofstream& outFile) {
+        if (currentNode != nullptr) {
+            outFile << currentNode->data << " ";
+            savePreorder(currentNode->left, outFile);
+            savePreorder(currentNode->right, outFile);
+        }
+    }
+
 
 public:
     BinaryTree() : root(nullptr) {}
@@ -129,5 +141,36 @@ public:
     void clear() {
         clearRecursive(root);
         root = nullptr;
+    }
+    
+    //«береженн€ у файл
+    void saveToFile(const std::string& filename) {
+        std::ofstream outFile(filename);
+        if (outFile.is_open()) {
+            savePreorder(root, outFile);
+            outFile.close();
+            std::cout << "Tree saved to " << filename << std::endl;
+        }
+        else {
+            std::cerr << "Error opening file for writing." << std::endl;
+        }
+    }
+
+    
+
+    void readFromFile(const std::string& filename) {
+        this->clear(); //очисчаЇмо старий список
+        std::ifstream inFile(filename);
+        if (inFile.is_open()) {
+            int data = 0;
+            while (inFile >> data) {
+                this->insert(data);
+            }
+            inFile.close();
+            std::cout << "Tree read from " << filename << std::endl;
+        }
+        else {
+            std::cerr << "Error opening file for reading." << std::endl;
+        }
     }
 };
