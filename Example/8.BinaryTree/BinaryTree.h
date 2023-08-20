@@ -6,6 +6,7 @@ class BinaryTree {
 private:
     TreeNode* root;
 
+    //додавання елемента
     TreeNode* insertRecursive(TreeNode* currentNode, int value) {
         //Якщо поточний елемент постуий, ми стоврємо вузол
         if (currentNode == nullptr) {
@@ -22,7 +23,7 @@ private:
 
         return currentNode; //вертаємо поточний елемент
     }
-
+    //пошук елемента
     TreeNode* searchRecursive(TreeNode* currentNode, int value) {
         //Якщо поточний елемент постуий, ми стоврємо вузол
         if (currentNode == nullptr) {
@@ -43,6 +44,48 @@ private:
             return searchRecursive(currentNode->right, value); //якщо значення більше поточного - ідемо в праву гілку
         }
         return currentNode; //вертаємо поточний елемент
+    }
+
+    //пошук мінімального елемента
+    TreeNode* findMinNode(TreeNode* node) {
+        while (node->left != nullptr) {
+            node = node->left;
+        }
+        return node;
+    }
+    //видалення елемнета із дерева
+    TreeNode* removeRecursive(TreeNode* currentNode, int value) {
+        if (currentNode == nullptr) {
+            return nullptr;
+        }
+        //ідемо в ліво
+        if (value < currentNode->data) {
+            currentNode->left = removeRecursive(currentNode->left, value);
+        }
+        //ідемо в право
+        else if (value > currentNode->data) {
+            currentNode->right = removeRecursive(currentNode->right, value);
+        }
+        //якщо знайшли елемент
+        else {
+            //Якщо зліва нікого немає
+            if (currentNode->left == nullptr) {
+                TreeNode* temp = currentNode->right; //запамятовуємо праву гілку
+                delete currentNode; //поточну гілку видаляємо, бо ми її знайшли
+                return temp;
+            }
+            else if (currentNode->right == nullptr) { //Запамятовуємо ліву гілку
+                TreeNode* temp = currentNode->left;
+                delete currentNode; //видаляємо поточні гілку
+                return temp;
+            }
+
+            TreeNode* minValueNode = findMinNode(currentNode->right); //шукаємо мінімальне значення по правій гілці
+            currentNode->data = minValueNode->data; //Змінуємо значення 
+            currentNode->right = removeRecursive(currentNode->right, minValueNode->data); //ідемо в право
+        }
+
+        return currentNode;
     }
 
 public:
@@ -72,5 +115,9 @@ public:
     {
         TreeNode * item = searchRecursive(root, data);
         return item;
+    }
+
+    void remove(int value) {
+        root = removeRecursive(root, value);
     }
 };

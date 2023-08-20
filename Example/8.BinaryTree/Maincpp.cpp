@@ -17,19 +17,25 @@ int main() {
 
 
 
-    TreeNode * node = tree.search(2);
+   /* TreeNode * node = tree.search(2);
     if (node != nullptr)
     {
         std::cout << "Знайдено елемента - " << node->data << "\n";
         std::cout << "left - " << node->left << "\n";
         std::cout << "right - " << node->right << "\n";
-    }
-    /*if (node != nullptr)
-    {
-        std::cout << "Елемент знайдено: " << node->data << "\n";
     }*/
-    std::cout << "Inorder traversal: ";
+    std::cout << "Список елементів дерева: ";
     tree.inorder();
     std::cout << std::endl;
+
+    tree.remove(5);
+
+    tree.insert(6);
+
+    std::cout << "Після видалення 2: ";
+    tree.inorder();
+    std::cout << std::endl;
+
+
 	return 0;
 }
