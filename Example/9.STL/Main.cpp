@@ -4,35 +4,31 @@ using namespace std;
 #include<windows.h>
 #include <vector>
 #include <set>
+#include <map>
 
 void test_vector();
+void test_set();
 int main() 
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	//test_vector();
-	//не можуть значення повторюватия у списку
-	//зберігає сортований набір елементів
-	set<string> days;
-	days.insert("Понеділок");
-	days.insert("Вівторок");
-	days.insert("Середа");
-	days.insert("Четвер");
-	days.insert("Пятниця");
-	days.insert("Субота");
-	days.erase("Середа");
-	/*for (auto i = days.begin(); i != days.end(); i++)
-	{
-		cout << *i << "\n";
-	}*/
-	// Iterate through the set and print its elements
-	std::cout << "Elements in the set: ";
-	//цикл foreach - берез списко days - по черзі іде по списку і кожна ітерація 
-	//кладе значення day = days[i], де і - ітерація циклу 0, 1, ..., n
-	for (auto day : days) {
-		std::cout << day << " ";
+	//test_set();
+	//map - зберігає набір елементів, згідно ключа, який не може повторитися.
+	map<string, string> mymap = {
+		{"Понеділок", "Іанка"},
+		{"Вівторок", "Сінжанна"},
+		{"Середа", "Іванка"}
+	};
+	mymap.insert(std::make_pair("Четвер", "Марина"));
+	mymap.insert(std::make_pair("Середа", "Альона"));
+	mymap["Пятниця"] = "Олена";
+	/*for (auto i = mymap.begin(); i != mymap.end(); i++)
+		cout << i->first << "\t" << i->second << "\n";*/
+
+	for (auto item : mymap) {
+		cout << item.first << "\t" << item.second << "\n";
 	}
-	std::cout << std::endl;
 	return 0;
 }
 void test_vector() {
@@ -79,4 +75,30 @@ void test_vector() {
 	{
 		cout << *i << "\n";
 	}
+}
+
+void test_set() 
+{
+	//не можуть значення повторюватия у списку
+	//зберігає сортований набір елементів
+	set<string> days;
+	days.insert("Понеділок");
+	days.insert("Вівторок");
+	days.insert("Середа");
+	days.insert("Четвер");
+	days.insert("Пятниця");
+	days.insert("Субота");
+	days.erase("Середа");
+	/*for (auto i = days.begin(); i != days.end(); i++)
+	{
+		cout << *i << "\n";
+	}*/
+	// Iterate through the set and print its elements
+	std::cout << "Elements in the set: ";
+	//цикл foreach - берез списко days - по черзі іде по списку і кожна ітерація 
+	//кладе значення day = days[i], де і - ітерація циклу 0, 1, ..., n
+	for (auto day : days) {
+		std::cout << day << " ";
+	}
+	std::cout << std::endl;
 }
