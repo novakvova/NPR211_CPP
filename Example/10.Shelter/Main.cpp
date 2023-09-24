@@ -30,5 +30,6 @@ int main() {
 	{
 		cout << animal << "\n";
 	}
+	cin.get();
 	return 0;
 }
