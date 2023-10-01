@@ -79,5 +79,17 @@ public:
 			FindClose(hFind);
 		}
 	}
+
+	void RemoveFile(const wstring filePath)
+	{
+		//const wchar_t* filePath = L"C:\\path\\to\\your\\file.txt";
+
+		if (DeleteFile(filePath.c_str())) {
+			std::wcout << L"File removed successfully." << std::endl;
+		}
+		else {
+			std::wcerr << L"Error removing file." << std::endl;
+		}
+	}
 };
 

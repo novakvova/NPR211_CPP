@@ -14,7 +14,10 @@ int main() {
 	//fsm.GetListDrivers();
 
 	//fsm.ListFolders(L"D:\\25.09.2023\\*");
-	fsm.ListFiles(L"D:\\*");
+
+	//fsm.ListFiles(L"D:\\*");
+
+	//fsm.RemoveFile(L"D:\\25.09.2023\\Desktop\\images\\dell.zip");
 	
 	//cout << "Привіт команад\n";
 	return 0;
